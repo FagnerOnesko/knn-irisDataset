@@ -24,3 +24,17 @@ for(linTeste in 1:30){
   }
 }
 
+#knn
+k <- 5;
+matrizKnn <- matrix(nrow=30,ncol=k)
+matrizDistCopia <- matrizDist
+
+for (lin in 1:30) {
+  for (col in 1:k) {
+    matrizKnn[lin,col] <- which.min(matrizDistCopia[lin,])
+    matrizDistCopia[lin,matrizKnn[lin,col]] <- 2
+  }
+}
+
+
+
