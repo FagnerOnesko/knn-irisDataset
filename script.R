@@ -8,3 +8,6 @@ for(col in 1:4){
   }
 }
 
+treinamento <- irisNorm[c(1:40,51:90, 101:140),]
+teste <-irisNorm[c(41:50,91:100, 141:150),]
+
