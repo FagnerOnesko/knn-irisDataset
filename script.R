@@ -43,13 +43,13 @@ for (lin in 1:30){
   setosa= versicolor= virginica = 0
   for (col in 1:k) {
     if(treinamento[matrizKnn[lin,col],5] == "setosa" ){
-      setosa = setosa + 1
+      setosa <- setosa + 1
     }
     else if(treinamento[matrizKnn[lin,col],5] == "versicolor"){
-      versicolor = versicolor + 1
+      versicolor <- versicolor + 1
     }
     else{
-      virginica = virginica + 1
+      virginica <-virginica + 1
     }
   }
   if(setosa > versicolor && setosa > virginica){
@@ -65,3 +65,30 @@ for (lin in 1:30){
 }
 
 
+#PUREZA
+acertosSet = acertosVer = acertosVir = errosSet = errosVer = errosVir = 0
+
+for(lin in 1:30){
+  if(teste[lin,5] == "setosa"){
+    if(teste[lin,5] == matrizKnnClasses[lin,1])
+      acertosSet <- acertosSet+1
+    else
+      errosSet <- errosSet+1
+  }
+  else if(teste[lin,5] == "versicolor"){
+    if(teste[lin,5] == matrizKnnClasses[lin,1])
+      acertosVer <-acertosVer+1
+    else
+      errosVer = errosVer+1
+  }
+  else{
+    if(teste[lin,5] == matrizKnnClasses[lin,1])
+      acertosVir <- acertosVir+1
+    else
+      errosVir <- errosVir+1;
+  }
+}
+
+purezaSet <- acertosSet/(acertosSet+errosSet)  
+purezaVer <- acertosVer/(acertosVer+errosVer) 
+purezaVir <- acertosVir/(acertosVir+errosVir) 
