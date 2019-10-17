@@ -36,5 +36,32 @@ for (lin in 1:30) {
   }
 }
 
+#classificar
+matrizKnnClasses <- matrix(nrow=30,ncol=1)
+
+for (lin in 1:30){
+  setosa= versicolor= virginica = 0
+  for (col in 1:k) {
+    if(treinamento[matrizKnn[lin,col],5] == "setosa" ){
+      setosa = setosa + 1
+    }
+    else if(treinamento[matrizKnn[lin,col],5] == "versicolor"){
+      versicolor = versicolor + 1
+    }
+    else{
+      virginica = virginica + 1
+    }
+  }
+  if(setosa > versicolor && setosa > virginica){
+    matrizKnnClasses[lin,1] <- "setosa"
+  }
+  
+  else if(versicolor > setosa && versicolor > virginica){
+    matrizKnnClasses[lin,1] <- "versicolor"
+  }
+  else{
+    matrizKnnClasses[lin,1] <- "virginica"
+  }
+}
 
 
